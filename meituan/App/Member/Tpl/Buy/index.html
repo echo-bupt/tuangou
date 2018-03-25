@@ -1,0 +1,47 @@
+	<load file="./Public/tpl/header.html"/>
+	<!-- 载入公共头部文件-->
+	<link href="__PUBLIC__/css/buy.css" type="text/css" rel="stylesheet" >
+        <script src="__PUBLIC__/js/buy.js"></script>
+	<div class='position'>
+		<div id="main">
+			<div class='step'>
+				<ul>
+					<li class='current'>1.查看购物车 </li>
+					<li>2.填写收货人信息. </li>
+					<li>3.支付结算 </li>
+				</ul>	
+			</div>
+			<!-- 购物车列表 -->
+			<table class='buy-table' border=0>
+			<thead>
+				<tr>
+					<th>项目</th>
+					<th width='20%' style="text-align:left;">数量</th>
+					<th width='20%'>单价</th>
+					<th width='10%'>总价</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+                                            <img src="{$goodsInfo.goods_img}"  style="float: left;"/>
+						<a href="" style="float: left;margin-left:15px;">{$goodsInfo.main_title}</a>
+					</td>
+					<td class='goods-num'>
+						<a href="javascript:void(0)" class='reduce' id="reduce"></a>
+						<input id="num" type="text" value=1> 
+						<a href="javascript:void(0)" class='add' id="add"></a>
+					</td>
+					<td>{$goodsInfo.price}</td>
+					<td>{$goodsInfo.price}</td>
+				</tr>
+			</tbody>
+			</table>
+			<!-- 订单提交 -->
+			<div class='bottom'>
+				<input type="submit" class='submit' value="提交订单">
+			</div>
+		</div>
+	</div>	
+</body>
+</html>

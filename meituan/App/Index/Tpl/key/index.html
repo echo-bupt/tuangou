@@ -1,0 +1,116 @@
+	<load file="./Public/tpl/header.html"/>
+        <style type="text/css">
+  a.backToTop{width:60px; height:60px; background:#eaeaea url("__PUBLIC__/images/top.gif") no-repeat -51px 0; text-indent:-999em}
+  a.backToTop:hover{background-position:-113px 0}
+</style>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/gotoTop.js"></script>
+	<!-- 载入公共头部文件-->
+	<!-- 载入商品筛选-->
+	<load file="./Public/tpl/filter.html"/>
+	<link href="__PUBLIC__/css/index.css" type="text/css" rel="stylesheet" >
+            <script>
+                var url="__APP__";
+                var root="__ROOT__"+"/";
+            </script>
+            <script>
+                  var on=false;//验证用户是否登陆的变量.
+          
+            on=<if value="isset($_SESSION['uid']) && isset($_SESSION['uname'])">
+            true;
+        
+          <else>false</if>
+            </script>
+    <input type="hidden" value="{$hd.get.page}" id="page"/>
+	<!-- 页面主体开始 -->
+        <!--下面记录index页面的访问次数-->
+        <input type="hidden" value=<?php echo $_COOKIE['cookieNum']?> id="cookieNum"/>
+        <input type="hidden" value=<?php echo $_COOKIE['lasttime']?> id="lasttime"/>
+        <input type="hidden" value="{$keywords}" id="keyword"/>
+       <input type="hidden" value="{$freshCount}" id="freshCount"/>
+       <div style="margin:0 auto;width:100%;text-align: center;">
+              根据关键字&nbsp;&nbsp;&nbsp;"<span style="color:#cc0000">{$keywords}"</span>&nbsp;&nbsp;&nbsp;共为您找到&nbsp;&nbsp;<span style="color:#cc0000">{$num}</span>&nbsp;&nbsp;条记录
+        </div>
+	<div id="main">
+		<div class='content' style="" id="content">
+                    <if value="!empty({$goods})">
+                    <foreach from="{$goods}" value="$v">
+		<div class='item'>
+				<div class='cover'>
+					<a href="{|U('Index/Detail/index')}/gid/{$v.gid}"><img src="{$v.goods_img}"/></a>
+				</div>
+				<a class='link' href="{|U('Index/Detail/index')}/gid/{$v.gid}">
+					<h3>{$v.main_title}</h3>
+					<p class='describe'>{$v.sub_title}</p>
+				</a>
+				<p class='detail'>
+					<strong>¥{$v.price}</strong>
+					<span>门店价<span>-</span><del>{$v.old_price}</del></span>
+					<a href="{|U('Index/Detail/index')}/gid/{$v.gid}"></a>
+				</p>
+				<p class='total'>
+					<strong>{$v.buy}</strong>
+					人已参与
+				</p>
+			</div>	
+</foreach>
+                        <else>
+                            由于资源有限，没有找到对应关键字的记录，请修改关键字，比如  "火锅"  ,"酒店" .
+                    </if>
+              
+		</div>
+		<div class='sidebar'>
+			<div class='hot-products'>
+				<h3>热卖商品</h3>
+				<ul>
+					<li>
+						<h6><span>1</span><a href="">【2店通用】CGV星星国际影城电影</a></h6>
+						<a href=""><img src="http://p1.meituan.net/deal/201301/04/173144_2860489.jpg"/></a>
+						<div class='info'>
+							<em>¥30</em>
+							<p>每天<span>231</span>人团购</p>
+						</div>
+					</li>
+					<li>
+						<h6><span>1</span><a href="">【2店通用】CGV星星国际影城电影</a></h6>
+						<a href=""><img src="http://p1.meituan.net/deal/201301/04/173144_2860489.jpg"/></a>
+						<div class='info'>
+							<em>¥30</em>
+							<p>每天<span>231</span>人团购</p>
+						</div>
+					</li>
+					<li>
+						<h6><span>1</span><a href="">【2店通用】CGV星星国际影城电影</a></h6>
+						<a href=""><img src="http://p1.meituan.net/deal/201301/04/173144_2860489.jpg"/></a>
+						<div class='info'>
+							<em>¥30</em>
+							<p>每天<span>231</span>人团购</p>
+						</div>
+					</li>
+					<li>
+						<h6><span>1</span><a href="">【2店通用】CGV星星国际影城电影</a></h6>
+						<a href=""><img src="http://p1.meituan.net/deal/201301/04/173144_2860489.jpg"/></a>
+						<div class='info'>
+							<em>¥30</em>
+							<p>每天<span>231</span>人团购</p>
+						</div>
+					</li>
+					<li>
+						<h6><span>1</span><a href="">【2店通用】CGV星星国际影城电影</a></h6>
+						<a href=""><img src="http://p1.meituan.net/deal/201301/04/173144_2860489.jpg"/></a>
+						<div class='info'>
+							<em>¥30</em>
+							<p>每天<span>231</span>人团购</p>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+        
+	<div class='c'>
+        </div>
+         <div id="loader"></div>
+	<load file="./Public/tpl/footer.html"/>
+</body>
+</html>

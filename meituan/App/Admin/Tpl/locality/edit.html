@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+     <jquery/>
+    <hdui/>
+    <script src="__PUBLIC__/js/category.js"></script>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+			<link rel="stylesheet" href="__PUBLIC__/css/add_category.css" />
+	<title></title>
+</head>
+<body>
+	<form action="__CONTROL__/edit" method="post" id="validation">
+		<table class="table">
+			<tr >
+				<td class="th" colspan="2">修改分类</td>
+			</tr>
+			<tr>
+				<td>分类名称</td>
+				<td><input type="text" name="lname" value="{$info.lname}"/></td>
+                                <input type="hidden" name="lid" value="{$hd.get.lid}"/>			</tr>	
+			<tr>
+				<td>分类排序</td>
+				<td>
+					<input name="sort" type="text"  value="{$info.sort}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>是否显示</td>
+				<td>
+                                    <if value="$info.display">
+					<lable>
+						<input type="radio" name="display" value="1" checked="checked"/>	
+						<span>显示</span>
+					</lable>
+                                        <lable>
+						<input type="radio" name="display" value="0"/>	
+						<span>隐藏</span>
+					</lable>
+                                        <else/>
+                                        <lable>
+						<input type="radio" name="display" value="1" />	
+						<span>显示</span>
+					</lable>
+					<lable>
+						<input type="radio" name="display" value="0" checked="checked"/>	
+						<span>隐藏</span>
+					</lable>
+                                        </if>
+				</td>
+			</tr>
+				<td colspan="2">
+					<input type="submit" value="修改" class="input_button"/>
+					<input type="reset" class="input_button"/>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
+

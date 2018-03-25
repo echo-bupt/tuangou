@@ -1,0 +1,141 @@
+<load file="./meituan/App/Admin/Tpl/Common/header.html" />
+<hdui/>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=AC37be9efe7459c38f04c34a964155a2"></script>
+<script type="text/javascript" src="__PUBLIC__/js/goods.js"></script>
+<!--下面<jqueryui/>是为了载入框架中的日历插件-->
+<jqueryui/>
+<div id="map">
+	<span class='title'>编辑商品</span>
+</div>
+<div id="content">
+	<form id="goodsForm" action="{|U('Admin/Goods/edit')}" method="post">
+	<table class='table table-striped table-bordered'>
+		<thead>
+			<tr>
+				<th width="20%">名称</th>
+				<th>值</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>商铺名称</td>
+				<td>
+					<input type="hidden" value="{$hd.get.gid}" name="gid"/>
+					<input type="hidden" name="shopid" value="{$goodsInfo.shopid}"/>
+					{$goodsInfo.shopname}
+				</td>
+			</tr>
+			<tr>
+				<td>分类名称</td>
+				<td>
+					<select name="cid" >
+						<foreach from="$allCategory" value="$v">
+                                                    <if value="{$v.cid eq $goodsInfo.cid}">
+							<option value="{$v.cid}" selected="selected">{$v.html}{$v.cname}</option>	
+                                                        <else>
+                                                        <option value="{$v.cid}">{$v.html}{$v.cname}</option>
+                                                        </if>
+						</foreach>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>所在地区</td>
+				<td>
+					<select name="lid" >
+						<foreach from="$allLocality" value="$v">
+                                                      <if value="{$v.lid eq $goodsInfo.lid}">
+							<option value="{$v.lid}" selected="selected">{$v.html}{$v.lname}</option>	
+                                                        <else>
+                                                        <option value="{$v.lid}">{$v.html}{$v.lname}</option>
+                                                        </if>
+						</foreach>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>商品主标题</td>
+				<td>
+					<input type="text" name="main_title" value="{$goodsInfo.main_title}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>商品副标题</td>
+				<td>
+					<!--textarea这个标签是没有value属性的-->
+					<textarea name="sub_title">{$goodsInfo.sub_title}</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>现价</td>
+				<td>
+					<input type="text" name="price" value="{$goodsInfo.price}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>原价</td>
+				<td>
+					<input type="text" name="old_price" value="{$goodsInfo.old_price}" />
+				</td>
+			</tr>
+			<tr>
+				<td>上架时间</td>
+				<td>
+					<input id="begin_time" type="text" name="begin_time" value="{$goodsInfo.begin_time | date:'Y-m-d',@@}"/>
+				</td>
+			</tr>
+			<tr>
+				<td>下架时间</td>
+				<td>
+					<input id="end_time" type="text" name="end_time"  value="{$goodsInfo.end_time | date:'Y-m-d',@@}"/>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td>商品展示图</td>
+				<td>
+					<upload size="2" type="jpg,png,gif" limit="1" name="goods_img" thumb="460,280,200,100,310,185,90,55"/>
+                                        <!--这里我们加一个old_img的字段，是为了与那个getData函数相对应，当我们添加商品的时候肯定在$_POST里不存在这个字段，然后在edit的POST数据里可以有
+                                        这个old_img字段，说明是编辑，那我们就进行删除(另外还必须保证goods_img存在，也就是有新的图像提交上来!)-->
+                                        <foreach from="$goodsInfo.old_img" value="{$v}">
+                                        <img src="__ROOT__/{$v}" width="200"/>
+                                        </foreach>>
+                                        <input type="hidden" value="{$goodsInfo.goods_img}" name="old_img"/>
+                                        
+				</td>
+			</tr>	
+			<tr>
+				<td>商品服务</td>
+				<td>
+					<foreach from="$goodsRule" key="$k" value="$v">
+						<label>
+                                                    <if value="$goodsInfo['goods_server'][0] eq {$k} or $goodsInfo['goods_server'][1] eq {$k}">
+							<input type="checkbox" name="goods_server[]" value="{$k}" checked="checked">
+							{$v.name}
+                                                       <else>
+                                                       <input type="checkbox" name="goods_server[]" value="{$k}">{$v.name}
+                                                       </if>
+						</label>
+					</foreach>
+				</td>
+			</tr>	
+			<tr>
+				<td>商品细节展示</td>
+				<td>
+					<ueditor name='detail' content="{$goodsInfo.detail}">
+				</td>
+			</tr>	
+			<tr>
+				<td></td>
+				<td><input type="submit" class='btn' /></td>
+			</tr>
+		</tbody>
+	</table>
+	</form>
+	
+	
+	
+</div>
+</body>
+</html>
