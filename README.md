@@ -2,9 +2,7 @@
 
 **环境要求**
 
-
-
- 1, 搭建好PHP+Apache+MySQL环境。
+1, 搭建好PHP+Apache+MySQL环境。
 
 2，将hdgroup数据库导入。
 
@@ -14,6 +12,11 @@
 
 5，后台地址:http://localhost/meituan/index.php/admin
  
+**界面展示**
+<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/1.png" width = "550px"/>
+<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/2.png" width = "550px"/>
+<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/3.png" width = "550px"/>
+<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/4.png" width = "550px"/>
 
 **Contact Me**
  * QQ: 863511096
