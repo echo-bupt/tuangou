@@ -13,10 +13,11 @@
 5，后台地址:http://localhost/meituan/index.php/admin
  
 **界面展示**
-<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/1.png" width = "550px"/>
-<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/2.png" width = "550px"/>
-<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/3.png" width = "550px"/>
-<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/4.png" width = "550px"/>
+
+1,<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/1.png" width = "550px"/>
+2,<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/2.png" width = "550px"/>
+3,<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/3.png" width = "550px"/>
+4,<img src="https://github.com/echo-bupt/tuangou/blob/master/imgs/4.png" width = "550px"/>
 
 **Contact Me**
  * QQ: 863511096
